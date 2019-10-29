@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery-1.js"></script>
+    <script src="data_generator1.js"></script>
+  </head>
+  <body>
+   <!-- <input type="text" name="name">;
+    <button>Add this tweet</button>-->
+    <script>
+      var added;
+      $(document).ready(function(){
+        var $body = $('body');
+        $body.html('');
+        $body.append('<input type="text" name="">');
+        $body.append('<button>add this tweet</button>')
+        var value=$('input').val();
+        
+       // var addedTweet = $('button').on('click', function() {
+         // return $('input').val();
+       // })
+        
+        
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+
+          var $tweet = $('<div></div>');
+
+
+          $tweet.text('@' + tweet.user + ': ' + tweet.message );
+          $tweet.appendTo($body);
+          index -= 1;
+        }
+        $('button').on('click',function(){
+            added=$('input').val() 
+            var date = new Date();
+            streams.home.push({user:randomElement(window.users),message:added + " The date is : "+date})
+            
+
+
+            var tweet1 = streams.home[streams.home.length - 1];
+            var $tweet1 = $('<div></div>');
+
+            var theUser = tweet1.user
+            var $theUser = $('<span></span>');
+            //console.log("the user is : " + theUser); 
+            
+            $tweet1.text('@' + tweet1.user + ': ' + tweet1.message );
+            $tweet1.appendTo($body);
+            
+
+
+      }
+      
+
+      )
+        
+
+      });
+
+
+
+    </script>
+  </body>
+</html>
